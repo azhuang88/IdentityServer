@@ -1,0 +1,10 @@
+﻿@using ProgressIQ.IdentityServer.Web.App_LocalResources.Shared
+
+<ul class="nav navbar-nav">
+    <li>@if (ViewBag.IsAdministrator)
+    {
+        @Html.ActionLink(_Menu_cshtml.Administration, "index", "home", new { area = "Admin" }, null)
+    }</li>
+    <li>@Html.ActionLink("About", "About", "Home")</li>
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+</ul>

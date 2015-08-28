@@ -1,0 +1,49 @@
+﻿@using ProgressIQ.IdentityServer.Web.App_LocalResources.InitialConfiguration
+@model ProgressIQ.IdentityServer.Web.ViewModels.InitialConfigurationModel
+@{
+    ViewBag.Title = Index_cshtml.InitialConfiguration;
+}
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index","InitialConfiguration",FormMethod.Post,new {@class ="form-horizontal"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset class="editor">
+        <legend>@Index_cshtml.Settings</legend>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SiteName,new {@class="col-md-2 control-label"})
+            @Html.EditorFor(model => model.SiteName)
+            @Html.ValidationMessageFor(model => model.SiteName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IssuerUri, new { @class = "col-md-2 control-label" })
+            @Html.EditorFor(model => model.IssuerUri)
+            @Html.ValidationMessageFor(model => model.IssuerUri)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SigningCertificate, new { @class = "col-md-2 control-label" })
+            @Html.DropDownList("SigningCertificate", Model.AvailableCertificatesList)
+        </div>
+    </fieldset>
+
+    <fieldset class="editor">
+        <legend>@Index_cshtml.DefaultAccounts</legend>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreateDefaultAccounts, new { @class = "col-md-4 control-label" })
+            @Html.EditorFor(model => model.CreateDefaultAccounts)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, new { @class = "col-md-2 control-label" })
+            @Html.EditorFor(model => model.UserName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "col-md-2 control-label" })
+            @Html.EditorFor(model => model.Password)
+        </div>
+    </fieldset>
+
+    <div class="buttons">
+        <input type="submit" value="@Index_cshtml.Save" />
+    </div>
+}

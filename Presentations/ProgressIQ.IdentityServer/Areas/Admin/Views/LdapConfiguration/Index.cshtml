@@ -1,0 +1,37 @@
+﻿@using ProgressIQ.IdentityServer.Web.Areas.Admin.App_LocalResources.Ldap;
+@model IdentityServer.Models.Configuration.LdapConfiguration
+    
+@{
+    ViewBag.Title = Index_cshtml.LdapConfiguration;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(Index_cshtml.ErrorUpdatingConfiguration)
+    <fieldset class="editor">
+        <legend>@ViewBag.Title</legend>
+        @Html.EditorForModel()
+        <div class="buttons">
+            <button type="submit" name="action:Save">@Index_cshtml.SaveChanges</button>
+            <button type="reset">@Index_cshtml.Cancel</button>
+        </div>
+    </fieldset>
+
+    <div class="form-horizontal" style="margin-top: 30px;">
+        <div class="form-group">
+            @Html.Label("Username",new {@class="col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBox("username")
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Password", new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.Password("password")
+            </div>
+        </div>
+        <div class="buttons">
+            <button type="submit" name="action:Test">@Index_cshtml.TestConnection</button>
+        </div>
+    </div>
+}

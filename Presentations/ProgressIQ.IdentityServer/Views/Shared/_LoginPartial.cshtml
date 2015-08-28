@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNet.Identity
+@using ProgressIQ.IdentityServer.Web.App_LocalResources.Shared
+
+@if (ViewBag.IsSignedIn)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "index", "home", new { area = "" }, null)
+        </li>
+        <li>
+            @Html.ActionLink(_Menu_cshtml.SignOut, "signout", "account", new { area = "" }, null)
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink(_Menu_cshtml.SignIn, "signin", "account", new { area = "" }, null)
+        </li>
+    </ul>
+}
