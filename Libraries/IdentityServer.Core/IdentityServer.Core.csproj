@@ -62,6 +62,7 @@
     <Compile Include="Endpoints.cs" />
     <Compile Include="Helper\Cache.cs" />
     <Compile Include="Helper\CryptoHelper.cs" />
+    <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Helper\X509Certificates.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientCertificate.cs" />

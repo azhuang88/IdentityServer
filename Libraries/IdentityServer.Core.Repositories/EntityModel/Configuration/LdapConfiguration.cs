@@ -11,9 +11,9 @@ namespace IdentityServer.Repositories.Sql.Configuration
     {
         [Key]
         public int Id { get; set; }
-
         public bool Enabled { get; set; }
         public string LdapConnectionString { get; set; }
-
+        public string Domain { get; set; }
+        public string SiteTitle { get; set; }
     }
 }

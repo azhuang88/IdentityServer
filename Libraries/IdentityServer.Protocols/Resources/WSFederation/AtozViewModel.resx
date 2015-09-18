@@ -123,4 +123,10 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="Remember" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>ProgressIQ</value>
+  </data>
 </root>

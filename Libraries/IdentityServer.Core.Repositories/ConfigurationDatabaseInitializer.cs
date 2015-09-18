@@ -101,6 +101,8 @@ namespace IdentityServer.Repositories.Sql
             {
                 Enabled = true,
                 LdapConnectionString = "LDAP://domain.Local/DC=domain,DC=Local",
+                Domain = "domain.com",
+                SiteTitle = "ProgressIQ"
             };
         }
         private static WSFederationConfiguration CreateDefaultWSFederationConfiguration()

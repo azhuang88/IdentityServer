@@ -61,10 +61,6 @@
       <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RouteDebugger, Version=2.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\routedebugger.2.1.4.0\lib\net40\RouteDebugger.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
@@ -781,6 +777,7 @@
     <Content Include="Areas\Admin\Content\Admin.css" />
     <Content Include="Areas\Admin\Content\Admin.min.css" />
     <Content Include="Areas\Admin\Scripts\Admin.js" />
+    <Content Include="Content\adfs.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
@@ -790,6 +787,7 @@
     <Content Include="Content\images\icons-18-white.png" />
     <Content Include="Content\images\icons-36-black.png" />
     <Content Include="Content\images\icons-36-white.png" />
+    <Content Include="Content\images\illustration.png" />
     <Content Include="Content\images\logo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -799,7 +797,9 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Configuration\connectionStrings.config" />
     <Content Include="Configuration\identity.config" />
-    <Content Include="Configuration\identityServices.config" />
+    <Content Include="Configuration\identityServices.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Configuration\profile.config" />
     <Content Include="Configuration\repositories.config" />
     <Content Include="Configuration\tracing.config" />
@@ -814,6 +814,7 @@
     <EmbeddedResource Include="App_LocalResources\Atoz\AZ.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AZ.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Home\AppIntegration.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -1275,24 +1276,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\InitialConfiguration\Index.cshtml" />
@@ -1317,7 +1301,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Ldap\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

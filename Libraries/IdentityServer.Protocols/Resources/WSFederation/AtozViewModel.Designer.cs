@@ -77,5 +77,23 @@ namespace IdentityServer.Protocols.Resources.WSFederation {
                 return ResourceManager.GetString("Password", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember Me.
+        /// </summary>
+        public static string Remember {
+            get {
+                return ResourceManager.GetString("Remember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ProgressIQ.
+        /// </summary>
+        public static string SiteTitle {
+            get {
+                return ResourceManager.GetString("SiteTitle", resourceCulture);
+            }
+        }
     }
 }

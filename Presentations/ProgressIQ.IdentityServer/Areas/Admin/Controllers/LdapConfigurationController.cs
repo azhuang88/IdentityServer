@@ -68,13 +68,14 @@ namespace ProgressIQ.IdentityServer.Web.Areas.Admin.Controllers
         [MultipleButton(Name = "action", Argument = "Test")]
         public ActionResult Index(FormCollection form, LdapConfiguration model)
         {
-            var username = form["username"];
+            var email = form["email"];
             var password = form["password"];
 
-            if (ModelState.IsValid && !string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+            if (ModelState.IsValid && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
             {
-                var objLdap = new LdapManager(model.LdapConnectionString);
-                if (objLdap.Authenticate(username, password))
+                var objLdap = new LdapManager(model);
+                
+                if (objLdap.Authenticate(email, password))
                 {
                     TempData["Message"] = "Connection sucessful establish.";
                 }

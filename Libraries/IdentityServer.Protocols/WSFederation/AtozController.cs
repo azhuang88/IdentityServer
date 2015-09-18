@@ -134,11 +134,12 @@ namespace IdentityServer.Protocols.WSFederation
             var vm = new AtozViewModel
             {
                 ReturnUrl = returnUrl,
-                ShowClientCertificateLink = ConfigurationRepository.Global.EnableClientCertificateAuthentication
+                ShowClientCertificateLink = ConfigurationRepository.Global.EnableClientCertificateAuthentication,
+                SiteTitle = ConfigurationRepository.LdapConfiguration.SiteTitle
             };
 
             if (mobile) vm.IsSigninRequest = true;
-            return View("AZ");
+            return View("AZ",vm);
         }
 
         // handles the signin
@@ -150,7 +151,7 @@ namespace IdentityServer.Protocols.WSFederation
             if (ModelState.IsValid)
             {
 
-                if (new LdapManager(ConfigurationRepository.LdapConfiguration.LdapConnectionString).Authenticate(GetUsername(model.Email), model.Password))
+                if (new LdapManager(ConfigurationRepository.LdapConfiguration).Authenticate(model.Email, model.Password))
                 {
                     // establishes a principal, set the session cookie and redirects
                     // you can also pass additional claims to signin, which will be embedded in the session token
@@ -159,13 +160,13 @@ namespace IdentityServer.Protocols.WSFederation
                         model.Email,
                         AuthenticationMethods.Password,
                         model.ReturnUrl,
-                        false,
+                        model.RememberMe,
                         ConfigurationRepository.Global.SsoCookieLifetime);
                 }
             }
 
             ModelState.AddModelError("", @"Incorrect credential or not authorize");
-
+            model.SiteTitle = ConfigurationRepository.LdapConfiguration.SiteTitle;
             model.ShowClientCertificateLink = ConfigurationRepository.Global.EnableClientCertificateAuthentication;
             return View("AZ",model);
         }

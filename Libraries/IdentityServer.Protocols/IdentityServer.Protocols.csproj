@@ -105,7 +105,6 @@
     <Compile Include="AdfsIntegration\AdfsController.cs" />
     <Compile Include="FederationMetadata\FederationMetadataController.cs" />
     <Compile Include="FederationMetadata\WSFederationMetadataGenerator.cs" />
-    <Compile Include="LdapClaimsAuthorizeAttribute.cs" />
     <Compile Include="LdapIntegration\LdapManager.cs" />
     <Compile Include="OAuth2\AuthorizeRequest.cs" />
     <Compile Include="OAuth2\AuthorizeRequestClientException.cs" />

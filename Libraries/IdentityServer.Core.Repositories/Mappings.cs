@@ -165,7 +165,9 @@ namespace IdentityServer.Repositories.Sql
             return new LdapConfiguration()
             {
                 LdapConnectionString = entity.LdapConnectionString,
+                Domain = entity.Domain,
                 Enabled = entity.Enabled,
+                SiteTitle = entity.SiteTitle
             };
         }
 
@@ -174,7 +176,9 @@ namespace IdentityServer.Repositories.Sql
             return new Configuration.LdapConfiguration()
             {
                 LdapConnectionString = model.LdapConnectionString,
-                Enabled = model.Enabled
+                Domain = model.Domain,
+                Enabled = model.Enabled,
+                SiteTitle = model.SiteTitle
             };
         }
         #endregion

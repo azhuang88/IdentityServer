@@ -12,6 +12,9 @@ namespace IdentityServer.Protocols.WSFederation
 {
     public class AtozViewModel : ContentResult
     {
+        [Display(ResourceType = typeof(Resources.WSFederation.AtozViewModel), Name = "SiteTitle")]
+        public string SiteTitle { get; set; }
+
         [Required]
         [EmailAddress(ErrorMessage = @"Email not in correct format")]
         [Display(ResourceType = typeof(Resources.WSFederation.AtozViewModel), Name = "Email")]
@@ -38,6 +41,9 @@ namespace IdentityServer.Protocols.WSFederation
         public string Password { get; set; }
         public string ReturnUrl { get; set; }
         public bool ShowClientCertificateLink { get; set; }
-        public string wa { get; set; }
+        public string Domain { get; set; }
+
+        [Display(ResourceType = typeof(Resources.WSFederation.AtozViewModel), Name = "Remember")]
+        public bool RememberMe { get; set; }
     }
 }

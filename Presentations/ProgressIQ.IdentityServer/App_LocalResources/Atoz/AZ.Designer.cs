@@ -79,6 +79,15 @@ namespace ProgressIQ.IdentityServer.Web.App_LocalResources.Atoz {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incorrect credential or not authorize.
+        /// </summary>
+        public static string SignInError {
+            get {
+                return ResourceManager.GetString("SignInError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign In was unsuccessful. Please correct the errors and try again..
         /// </summary>
         public static string SignInWasUnsuccessful {

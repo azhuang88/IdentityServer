@@ -9,6 +9,8 @@ namespace IdentityServer.Models.Configuration
     public class LdapConfiguration
     {
         public bool Enabled { get; set; }
+        public string SiteTitle { get; set; }
         public string LdapConnectionString { get; set; }
+        public string Domain { get; set; }
     }
 }
