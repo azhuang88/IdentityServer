@@ -70,7 +70,7 @@ namespace IdentityServer.Protocols.WSFederation
             var signoutMessage = message as SignOutRequestMessage;
             if (signoutMessage != null)
             {
-                return ProcessWSFederationSignOut(signoutMessage);
+                return ProcessWsFederationSignOutRedirect(signoutMessage);
             }
 
             return View("Error");
@@ -107,6 +107,25 @@ namespace IdentityServer.Protocols.WSFederation
 
             return new WSFederationResult(response, ConfigurationRepository.WSFederation.RequireSslForReplyTo);
         }
+
+        private ActionResult ProcessWsFederationSignOutRedirect(SignOutRequestMessage message)
+        {
+            FederatedAuthentication.SessionAuthenticationModule.SignOut();
+
+            var mgr = new SignInSessionsManager(HttpContext, _cookieName);
+
+            // check for return url
+            if (!string.IsNullOrWhiteSpace(message.Reply)) //&& mgr.ContainsUrl(message.Reply))
+            {
+                ViewBag.ReturnUrl = message.Reply;
+            }
+
+            // check for existing sign in sessions
+            var realms = mgr.GetEndpoints();
+            mgr.ClearEndpoints();
+            return Redirect(message.Reply);
+        }
+
         private ActionResult ProcessWSFederationSignOut(SignOutRequestMessage message)
         {
             FederatedAuthentication.SessionAuthenticationModule.SignOut();
@@ -114,7 +133,7 @@ namespace IdentityServer.Protocols.WSFederation
             var mgr = new SignInSessionsManager(HttpContext, _cookieName);
 
             // check for return url
-            if (!string.IsNullOrWhiteSpace(message.Reply) && mgr.ContainsUrl(message.Reply))
+            if (!string.IsNullOrWhiteSpace(message.Reply)) //&& mgr.ContainsUrl(message.Reply))
             {
                 ViewBag.ReturnUrl = message.Reply;
             }
